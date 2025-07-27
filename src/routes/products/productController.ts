@@ -6,6 +6,7 @@ export function getProductById(_req: Request, res: Response) {
   res.send("getProductById");
 }
 export function createProduct(_req: Request, res: Response) {
+  console.log(_req.body);
   res.send("createProduct");
 }
 export function updateProduct(_req: Request, res: Response) {
