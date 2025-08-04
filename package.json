@@ -9,8 +9,8 @@
     "build":"tsc",
     "db:generate":"drizzle-kit generate",
     "db:migrate":"drizzle-kit migrate",
-    "db:studio":"drizzle-kit studio"
-    
+    "db:studio":"drizzle-kit studio",
+    "db:init": "npx drizzle-kit generate && npx drizzle-kit push && npx drizzle-kit pull && npx drizzle-kit check"
   },
   "keywords": [],
   "author": "",

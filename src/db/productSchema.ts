@@ -1,4 +1,5 @@
 // schema.ts
+import { boolean } from "drizzle-orm/gel-core";
 import {
   integer,
   pgTable,
@@ -12,4 +13,6 @@ export const productsTable = pgTable("products", {
   description: text(),
   image: varchar({ length: 255 }),
   price: doublePrecision().notNull(),
+  quantity: integer().default(0),
+  test: integer().default(0)
 });
