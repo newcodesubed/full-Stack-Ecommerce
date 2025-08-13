@@ -40,9 +40,16 @@ export async function createProduct(_req: Request, res: Response) {
   }
 }
 
-export function updateProduct(_req: Request, res: Response) {
+export async function updateProduct(_req: Request, res: Response) {
   try {
-    
+    const id = Number(_req.params.id);
+    const updatedProduct = _req.body;
+    const [product] = await db.update(productsTable).set(updatedProduct).where(eq(productsTable.id, id)).returning();
+    if(product){
+      res.status(200).json(product);
+    }else{
+      res.status(404).send({ error: "Product not found" });
+    }
   } catch (error) {
     console.error("Error updating product:", error);
     res.status(500).send({ error: "Failed to update product" });
