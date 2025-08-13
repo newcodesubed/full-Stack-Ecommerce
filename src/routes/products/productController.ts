@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import { db } from "../../db/index";
+
 export function listProduct(_req: Request, res: Response) {
   res.send("listProduct");
 }

@@ -43,6 +43,13 @@
       "when": 1754311661681,
       "tag": "0005_strong_morlun",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1755060210719,
+      "tag": "0006_funny_harrier",
+      "breakpoints": true
     }
   ]
 }
