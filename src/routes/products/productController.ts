@@ -10,10 +10,15 @@ export function getProductById(_req: Request, res: Response) {
 }
 
 export async function createProduct(_req: Request, res: Response) {
-  console.log("Request body:", _req.body);
-  const inserted = await db.insert(productsTable).values(_req.body).returning();
-  console.log("Inserted product:", inserted);
-  res.json(inserted);
+  try{
+
+    const [product] = await db.insert(productsTable).values(_req.body).returning();
+    console.log("Inserted product:", product);
+    res.status(201).json(product);
+  } catch (error) {
+    console.error("Error creating product:", error);
+    res.status(500).json({ error: "Failed to create product check your input probably" });
+  }
 }
 
 export function updateProduct(_req: Request, res: Response) {
