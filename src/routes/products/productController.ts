@@ -48,9 +48,15 @@ export function updateProduct(_req: Request, res: Response) {
     res.status(500).send({ error: "Failed to update product" });
   }
 }
-export function deleteProduct(_req: Request, res: Response) {
+export async function deleteProduct(_req: Request, res: Response) {
   try {
-    
+    const id = Number(_req.params.id);
+    const [deletedProduct] = await db.delete(productsTable).where(eq(productsTable.id, id)).returning();
+    if(deletedProduct){
+      res.status(204).send();
+    }else{
+      res.status(404).send({ error: "Product not found" });
+    }
   } catch (error) {
     console.error("Error deleting product:", error);
     res.status(500).send({ error: "Failed to delete product" });
