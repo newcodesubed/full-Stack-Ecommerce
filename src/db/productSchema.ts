@@ -5,6 +5,7 @@ import {
   pgTable,
   varchar,
   text,
+
   doublePrecision,
 } from "drizzle-orm/pg-core";
 export const productsTable = pgTable("products", {

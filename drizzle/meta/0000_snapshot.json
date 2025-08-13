@@ -1,5 +1,5 @@
 {
-  "id": "bf98380f-190c-4242-bcee-093474bc971b",
+  "id": "ce230442-43a3-4efc-b452-00162f717559",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -35,13 +35,15 @@
           "name": "description",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": "''"
         },
         "image": {
           "name": "image",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": "''"
         },
         "price": {
           "name": "price",
