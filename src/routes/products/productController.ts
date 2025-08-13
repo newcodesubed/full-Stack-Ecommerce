@@ -2,11 +2,22 @@ import { Request, Response } from "express";
 import { db } from "../../db/index";
 import { productsTable } from "../../db/productSchema";
 
-export function listProduct(_req: Request, res: Response) {
-  res.send("listProduct");
+export async function listProduct(_req: Request, res: Response) {
+  try {
+    const products = await db.select().from(productsTable);
+    res.status(200).json(products);
+  } catch (error) {
+    console.error("Error listing products:", error);
+    res.status(500).send({ error: "Failed to list products" });
+  }
 }
 export function getProductById(_req: Request, res: Response) {
-  res.send("getProductById");
+  try {
+    
+  } catch (error) {
+    console.error("Error getting products:", error);
+    res.status(500).send({ error: "Failed to get products" });
+  }
 }
 
 export async function createProduct(_req: Request, res: Response) {
@@ -17,13 +28,23 @@ export async function createProduct(_req: Request, res: Response) {
     res.status(201).json(product);
   } catch (error) {
     console.error("Error creating product:", error);
-    res.status(500).json({ error: "Failed to create product check your input probably" });
+    res.status(500).send({ error: "Failed to create product check your input probably" });
   }
 }
 
 export function updateProduct(_req: Request, res: Response) {
-  res.send("updateProduct");
+  try {
+    
+  } catch (error) {
+    console.error("Error updating product:", error);
+    res.status(500).send({ error: "Failed to update product" });
+  }
 }
 export function deleteProduct(_req: Request, res: Response) {
-  res.send("deleteProduct");
+  try {
+    
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    res.status(500).send({ error: "Failed to delete product" });
+  }
 }
